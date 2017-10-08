@@ -1,3 +1,35 @@
-<p>
-  sounds works!
-</p>
+<div class="container">
+    <h1>Sounds</h1>
+    <hr>
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="sound">Sound:</label>
+        <input type="text" class="form-control" #soundName>
+      </div>
+      <div class="form-group"></div>
+      <div class="form-group">
+          <label for="file">File:</label>
+          <input style="display:inline" type="file" #fileName>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="addSound(soundName.value, fileName.value)">Add sound</button>
+    </form>
+    <hr>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sound Name</th>
+          <th>File Name</th>
+          <th>Url</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sound of sounds">
+          <td>{{sound.name}}</td>
+          <td>{{sound.fileName}}</td>
+          <td>{{sound.url}}</td>
+          <td><button class="btn btn-danger" (click)="deleteSound(i)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

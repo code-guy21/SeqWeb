@@ -5,8 +5,8 @@ Footer
 .footer-area {
     margin-top: 4em;
     padding: 4em 2em;
-    color: white;
-    background: hsl(0, 0%, 20%);
+    color: rgb(157,157,157);
+    background: rgb(34,34,34);
 }
 
 .widgets {
