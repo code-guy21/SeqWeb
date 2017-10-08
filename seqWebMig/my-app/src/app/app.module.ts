@@ -7,11 +7,13 @@ import { SoundsComponent } from './components/sounds/sounds.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TestComponent } from './components/test/test.component';
+import { LoginComponent } from './components/login/login.component';
 
 const appRoutes: Routes = [
   {path:'', component:HomeComponent},
   {path:'apps', component:AppComponent},
   {path:'sound', component:SoundsComponent},
+  {path:'login', component:LoginComponent},
   {path:'test', component:TestComponent}
 ];
 
@@ -21,7 +23,8 @@ const appRoutes: Routes = [
     SoundsComponent,
     HomeComponent,
     FooterComponent,
-    TestComponent
+    TestComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

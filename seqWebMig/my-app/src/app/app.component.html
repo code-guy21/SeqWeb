@@ -11,9 +11,10 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul *ngIf="loggInn" class="nav navbar-nav">
         <li><a routerLink="/sound">Sounds</a></li>
+        <li><a routerLink="/test">Test</a></li>
       </ul>
       <ul *ngIf="false == loggInn" class="nav navbar-nav navbar-right">
-        <li><a href="/test"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
   </div>
