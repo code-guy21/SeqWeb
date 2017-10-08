@@ -11,7 +11,7 @@
           <label for="file">File:</label>
           <input style="display:inline" type="file" #fileName>
       </div>
-      <button type="submit" class="btn btn-primary" (click)="addSound(soundName.value, fileName.value)">Add sound</button>
+      <button type="submit" class="btn btn-primary" (click)="addSound(soundName.value, fileName.value)"> <span class="glyphicon glyphicon-plus-sign"></span> Add sound</button>
     </form>
     <hr>
     <table class="table table-bordered">
@@ -28,7 +28,7 @@
           <td>{{sound.name}}</td>
           <td>{{sound.fileName}}</td>
           <td>{{sound.url}}</td>
-          <td><button class="btn btn-danger" (click)="deleteSound(i)">Delete</button></td>
+          <td><button class="btn btn-danger" (click)="deleteSound(i)"> <span class="glyphicon glyphicon-trash"></span> Delete</button></td>
         </tr>
       </tbody>
     </table>
