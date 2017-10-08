@@ -1,18 +1,17 @@
-<div class="container">
-  <div class="jumbotron">
+<div class="jumbotron">
+  <h1 *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.uid }}!</h1>
+  <div *ngIf="!(authService.user | async)">
     <h2 class="center">Login</h2>
-    <form class="form">
-      <div class="form-group">
-        <label for="sound">Username:</label>
-        <input type="text" class="form-control" #Username>
-      </div>
-      <div class="form-group">
-        <label for="sound">Passwors:</label>
-        <input type="password" class="form-control" #password>
-      </div>
-      <div class="center">
-        <button type="submit" class="btn btn-primary" (click)="addSound(soundName.value, fileName.value)"> <span class="glyphicon glyphicon-log-in"></span> Login</button>
-      </div>
-    </form>
+        <div class="form-group">
+          <label for="sound">Email:</label>
+          <input type="text" class="form-control" #email>
+        </div>
+        <div class="form-group">
+          <label for="sound">Passwors:</label>
+          <input type="password" class="form-control" #password>
+        </div>
+        <div class="center">
+            <button class="btn btn-primary"  (click)="login(email.value, password.value)" ><span class="glyphicon glyphicon-log-in"></span> Login</button>
+        </div>
   </div>
 </div>
