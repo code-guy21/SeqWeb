@@ -15,11 +15,8 @@ import { SoundsComponent } from './components/sounds/sounds.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TestComponent } from './components/test/test.component';
-<<<<<<< HEAD
-=======
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
->>>>>>> global_struct
 
 const appRoutes: Routes = [
   {path:'', component:HomeComponent},
@@ -36,13 +33,9 @@ const appRoutes: Routes = [
     SoundsComponent,
     HomeComponent,
     FooterComponent,
-<<<<<<< HEAD
-    TestComponent
-=======
     TestComponent,
     LoginComponent,
     NavbarComponent
->>>>>>> global_struct
   ],
   imports: [
     BrowserModule,
@@ -51,8 +44,8 @@ const appRoutes: Routes = [
     AngularFireAuthModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ 
-    FirebaseService, 
+  providers: [
+    FirebaseService,
     AuthService
   ],
   bootstrap: [AppComponent]

@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-=======
 import { FirebaseService } from '../../services/firebase.service'
->>>>>>> global_struct
 
 @Component({
   selector: 'app-test',
@@ -10,14 +7,8 @@ import { FirebaseService } from '../../services/firebase.service'
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
-<<<<<<< HEAD
-
-  constructor() { }
-
-  ngOnInit() {
-=======
   sounds:any;
-  
+
   constructor(private firebaseService:FirebaseService) { }
 
   ngOnInit() {
@@ -25,7 +16,6 @@ export class TestComponent implements OnInit {
       this.sounds = sounds;
       console.log(sounds);
     })
->>>>>>> global_struct
   }
 
 }
