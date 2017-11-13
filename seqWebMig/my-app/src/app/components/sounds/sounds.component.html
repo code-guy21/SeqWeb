@@ -1,19 +1,24 @@
 
 <h1>Sounds</h1>
-<hr>
-<form class="form-inline">
-  <div class="form-group">
-    <label for="sound">Sound:</label>
-    <input type="text" class="form-control" #soundName>
-  </div>
-  <div class="form-group"></div>
-  <div class="form-group">
-      <label for="file">File:</label>
-      <input style="display:inline" type="file" #fileName>
-  </div>
-  <button type="submit" class="btn btn-primary" (click)="addSound(soundName.value, fileName.value)"> <span class="glyphicon glyphicon-plus-sign"></span> Add sound</button>
-</form>
-<hr>
+
+<div class="form-group">
+  <label for="sound">Sound:</label>
+  <input id="soundname" type="text" class="form-control" #soundName>
+</div>
+<label class="btn btn-default"> <input type="file"
+	(change)="selectFile($event)">
+</label>
+
+<button class="btn btn-success" [disabled]="!selectedFiles"
+  (click)="upload(soundName.value)">Upload</button>
+
+<div *ngIf="currentFileUpload" class="progress" style="width:400px">
+	<div class="progress-bar progress-bar-info progress-bar-striped"
+		role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+		aria-valuemin="0" aria-valuemax="100"
+		[ngStyle]="{width:progress.percentage+'%'}">
+		{{progress.percentage}}%</div>
+</div>
 <table class="table table-bordered">
   <thead>
     <tr>
