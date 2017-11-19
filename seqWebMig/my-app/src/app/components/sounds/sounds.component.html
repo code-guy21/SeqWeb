@@ -29,10 +29,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let sound of sounds">
-      <td>{{sound.name}}</td>
-      <td>{{sound.fileName}}</td>
-      <td>{{sound.url}}</td>
+    <tr *ngFor="let items$ of items$ | async">
+      <td>{{items$}}</td>
+      <td>{{items$}}</td>
       <td><button class="btn btn-danger" (click)="deleteSound(i)"> <span class="glyphicon glyphicon-trash"></span> Delete</button></td>
     </tr>
   </tbody>

@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
+import * as firebase from 'firebase';
 import {UploadFileService} from '../upload-file.service';
 import {FileUpload} from '../fileupload';
+import {AngularFireDatabase} from 'angularfire2/database';
+import {FirebaseListObservable} from 'angularfire2/database-deprecated'
+import { AngularFireList } from 'angularfire2/database/interfaces';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-sounds',
@@ -10,36 +14,31 @@ import {FileUpload} from '../fileupload';
 })
 export class SoundsComponent implements OnInit {
 
+  
+
   selectedFiles: FileList
   currentFileUpload: FileUpload
   progress: {percentage: number} = {percentage: 0}
+  private userID = firebase.auth().currentUser.uid;
 
-  sounds:{
-    name:String,
-    fileName:String,
-    url:String
-  }[];
+  itemsRef: AngularFireList<any>;
+  items$: Observable<String[]>;
+
+
   
-  constructor(private uploadService: UploadFileService) { }
+  constructor(private uploadService: UploadFileService, private db: AngularFireDatabase) {
+    this.itemsRef = db.list(`users/${this.userID}/sounds`);
+    
+    this.items$ = this.itemsRef.valueChanges(['child_added', 'child_removed'])
+    
+    this.items$.subscribe(
+      val => console.log(val)
+    )
+
+   }
 
   ngOnInit() {
-    this.sounds = [
-      { 
-        name: 'Bam',
-        fileName:'Bam.wav',
-        url: 'https://firebasestorage.googleapis.com/v0/b/sd-project-d3893.appspot.com/o/music%2FBeat%20It.mp3?alt=media&token=d8f3cd59-c594-4290-8445-b424ec6f51a8'
-      },
-      {
-        name: 'Bang',
-        fileName:'Bang.wav',
-        url: 'https://firebasestorage.googleapis.com/v0/b/sd-project-d3893.appspot.com/o/music%2FBeat%20It.mp3?alt=media&token=d8f3cd59-c594-4290-8445-b424ec6f51a8'
-      },
-      {
-        name: 'Boom',
-        fileName:'Boom.wav',
-        url: 'https://firebasestorage.googleapis.com/v0/b/sd-project-d3893.appspot.com/o/music%2FBeat%20It.mp3?alt=media&token=d8f3cd59-c594-4290-8445-b424ec6f51a8'
-      }
-    ];
+
   }
 
   selectFile(event) {
@@ -53,7 +52,7 @@ export class SoundsComponent implements OnInit {
   }
 
   deleteSound(i){
-    this.sounds.splice(i, 1);
+    
   }
 
 }
