@@ -22,16 +22,18 @@ export class SoundsComponent implements OnInit {
   private userID = firebase.auth().currentUser.uid;
 
   itemsRef: AngularFireList<any>;
-  items$: Observable<String[]>;
+  items: Observable<any[]>;
 
 
   
   constructor(private uploadService: UploadFileService, private db: AngularFireDatabase) {
     this.itemsRef = db.list(`users/${this.userID}/sounds`);
     
-    this.items$ = this.itemsRef.valueChanges(['child_added', 'child_removed'])
+    this.items = this.itemsRef.snapshotChanges().map(changes => {
+      return changes.map(c => ({ key: c.payload.key, name: c.payload.val() }));
+    });
     
-    this.items$.subscribe(
+    this.items.subscribe(
       val => console.log(val)
     )
 
@@ -52,6 +54,16 @@ export class SoundsComponent implements OnInit {
   }
 
   deleteSound(i){
+
+    this.itemsRef.remove(i)
+
+    this.itemsRef = this.db.list(`sounds/${this.userID}`);
+
+    this.itemsRef.remove(i)
+
+    this.itemsRef = this.db.list(`users/${this.userID}/sounds`);
+
+    console.log(i)
     
   }
 

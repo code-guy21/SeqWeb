@@ -12,6 +12,7 @@ export class UploadFileService {
  
   private basePath = '/music';
   private userID = firebase.auth().currentUser.uid;
+  private key;
  
   pushFileToStorage(fileUpload: FileUpload, progress: {percentage: number},nameu: string) {
     const storageRef = firebase.storage().ref();
@@ -37,7 +38,7 @@ export class UploadFileService {
   }
  
   private saveFileData(fileUpload: FileUpload) {
-    this.db.list(`sounds/${this.userID}/`).push(fileUpload);
-    this.db.list(`users/${this.userID}/sounds/`).push(fileUpload.name);
+    this.key = this.db.list(`sounds/${this.userID}/`).push(fileUpload).key
+    this.db.list(`users/${this.userID}/sounds`).set(this.key,fileUpload.name)
   }
 }

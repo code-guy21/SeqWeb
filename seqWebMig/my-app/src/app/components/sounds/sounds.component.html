@@ -29,10 +29,10 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let items$ of items$ | async">
-      <td>{{items$}}</td>
-      <td>{{items$}}</td>
-      <td><button class="btn btn-danger" (click)="deleteSound(i)"> <span class="glyphicon glyphicon-trash"></span> Delete</button></td>
+    <tr *ngFor="let i of items | async">
+      <td>{{i.name}}</td>
+      <td>{{i.name}}</td>
+      <td><button class="btn btn-danger" (click)="deleteSound(i.key)"> <span class="glyphicon glyphicon-trash"></span> Delete</button></td>
     </tr>
   </tbody>
 </table>
