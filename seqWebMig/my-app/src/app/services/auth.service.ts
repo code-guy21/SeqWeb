@@ -11,6 +11,7 @@ export class AuthService {
 
   constructor(private firebaseAuth: AngularFireAuth) {
     this.user = firebaseAuth.authState;
+    
   }
 
   signup(email: string, password: string) {

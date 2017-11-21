@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <h1 *ngIf="authService.user | async">Welcome {{ (authService.user | async)?.uid }}!</h1>
+  <h1 *ngIf="authService.user | async" >home</h1>
   <div *ngIf="!(authService.user | async)">
     <h2 class="center">Login</h2>
         <div class="form-group">

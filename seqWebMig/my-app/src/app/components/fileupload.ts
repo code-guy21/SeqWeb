@@ -2,7 +2,7 @@ export class FileUpload {
  
   $key: string;
   name: string;
-  url: string;
+  soundUrl: string;
   file: File;
  
   constructor(file: File) {

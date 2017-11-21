@@ -30,7 +30,7 @@ export class UploadFileService {
       },
       () => {
         // success
-        fileUpload.url = uploadTask.snapshot.downloadURL
+        fileUpload.soundUrl = uploadTask.snapshot.downloadURL
         fileUpload.name = nameu
         this.saveFileData(fileUpload)
       }
