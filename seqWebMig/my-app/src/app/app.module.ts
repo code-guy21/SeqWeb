@@ -19,6 +19,7 @@ import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SignupComponent } from './components/signup/signup.component';
 import {UploadFileService} from '../app/components/upload-file.service';
+import { FormsModule }   from '@angular/forms';
 
 const appRoutes: Routes = [
   {path:'', component:HomeComponent},
@@ -46,6 +47,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [

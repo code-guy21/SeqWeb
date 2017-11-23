@@ -1,21 +1,28 @@
 
-  <h2 class="center">Sign Up</h2>
       <div class="form-group">
-        <label for="sound">Email:</label>
-        <input type="text" class="form-control" #email>
-      </div>
-      <div class="form-group">
-        <label for="sound">Password:</label>
-        <input type="password" class="form-control" #password>
-      </div>
-      <div class="form-group">
-        <label for="sound">Name:</label>
-        <input type="password" class="form-control" #name>
-      </div>
-      <div class="form-group">
-        <label for="sound">Username:</label>
-        <input type="password" class="form-control" #uname>
-      </div>
-      <div class="center">
-        <button class="btn btn-primary"  (click)="signup(email.value, password.value)" ><span class="glyphicon glyphicon-log-in"></span> Sign Up</button>
+        <a routerLink="/login" id="goback">Go back</a>
+      
+        <h2>Join now</h2>
+          
+        <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+      
+          <div class="form-group">
+            <label for="sound">Name:</label>
+            <input type="text" placeholder="Name" (ngModel)="name" name="name" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="sound">Email:</label>
+            <input type="text" placeholder="Email address.." (ngModel)="email" name="email" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="sound">Password:</label>
+            <input type="password" placeholder="Password" (ngModel)="password" name="password" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="sound">Username:</label>
+            <input type="text" placeholder="Username.." (ngModel)="uname" name="uname" class="form-control" required>
+          </div>
+
+          <button type="submit" [disabled]="!formData.valid" class="btn btn-primary">Create my account</button>
+        </form>
       </div>
