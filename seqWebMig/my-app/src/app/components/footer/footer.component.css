@@ -38,9 +38,9 @@ Footer
     .widget {
         box-sizing: border-box;
         width: calc(50% - 1em);
-        padding: 1em 3em;
+        padding: 1em 1.5em;
         margin: 0 .5em 1em;
-        border: 1px solid hsla(0, 0%, 100%, .2);
+        border: 1px solid #e1002d;
     }
 
 }
@@ -50,4 +50,9 @@ Footer
         width: calc(33% - .66666667em);
         margin: 0 .4em;
     }
+}
+
+.widget-title {
+    text-align: center;
+    text-decoration: underline;
 }

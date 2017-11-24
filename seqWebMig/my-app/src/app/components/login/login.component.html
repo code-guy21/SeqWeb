@@ -1,4 +1,4 @@
-<div class="jumbotron">
+<div class="jumbotron jumbotron-black ">
   <h1 *ngIf="authService.user | async" >home</h1>
   <div *ngIf="!(authService.user | async)">
     <h2 class="center">Login</h2>
@@ -11,8 +11,8 @@
           <input type="password" class="form-control" #password>
         </div>
         <div class="center">
-            <button class="btn btn-primary"  (click)="login(email.value, password.value)" ><span class="glyphicon glyphicon-log-in"></span> Login</button>
-            <button class="btn btn-primary" routerLink="/signup"><span class="glyphicon glyphicon-log-in"></span> Sign Up </button>
+            <button class="btn btn-danger"  (click)="login(email.value, password.value)" ><span class="glyphicon glyphicon-log-in"></span> Login</button>
+            <button class="btn btn-danger" routerLink="/signup"><span class="glyphicon glyphicon-log-in"></span> Sign Up </button>
         </div>
   </div>
 </div>

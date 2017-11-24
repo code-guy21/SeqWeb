@@ -1,7 +1,11 @@
-.jumbotron {
+
+
+.jumbotron-black {
     max-width: 500px;
     margin: auto;
     padding: 1em;
+    background: #2d2d2d;
+    color: white;
 }
 
 .center {

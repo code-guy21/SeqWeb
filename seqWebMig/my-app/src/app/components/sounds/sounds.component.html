@@ -1,38 +1,40 @@
 
-<h1>Sounds</h1>
-
-<div class="form-group">
-  <label for="sound">Sound:</label>
-  <input id="soundname" type="text" class="form-control" #soundName>
-</div>
-<label class="btn btn-default"> <input type="file"
-	(change)="selectFile($event)">
-</label>
-
-<button class="btn btn-success" [disabled]="!selectedFiles"
-  (click)="upload(soundName.value)">Upload</button>
-
-<div *ngIf="currentFileUpload" class="progress" style="width:400px">
-	<div class="progress-bar progress-bar-info progress-bar-striped"
-		role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
-		aria-valuemin="0" aria-valuemax="100"
-		[ngStyle]="{width:progress.percentage+'%'}">
-		{{progress.percentage}}%</div>
-</div>
-<table class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Sound Name</th>
-      <th>File Name</th>
-      <th>Url</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let i of items | async">
-      <td>{{i.name}}</td>
-      <td>{{i.name}}</td>
-      <td><button class="btn btn-danger" (click)="deleteSound(i.key,i.name)"> <span class="glyphicon glyphicon-trash"></span> Delete</button></td>
-    </tr>
-  </tbody>
-</table>
+<section class="jumbotron jumbotron-black">
+  <h1 class="sounds-title">Upload Sounds</h1>
+  <form class="sounds-form form-inline">
+    <div class="form-group ">
+      <label for="soundname">Sound Name:</label>
+      <input id="soundname" type="text" class="form-control" #soundName>
+    </div>
+    <div class="form-group">
+      <label for="sound">Sound File:</label>
+      <label class="btn btn-default"> <input type="file"
+      (change)="selectFile($event)"></label>
+      </div>
+    <button class="btn btn-danger" [disabled]="!selectedFiles"
+      (click)="upload(soundName.value)">Upload</button>
+  </form>
+  <section class="centered">
+    <div *ngIf="currentFileUpload" class="progress" >
+      <div class="progress-bar progress-bar-danger progress-bar-striped"
+        role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+        aria-valuemin="0" aria-valuemax="100"
+        [ngStyle]="{width:progress.percentage+'%'}">
+        {{progress.percentage}}%</div>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Sound Name</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let i of items | async">
+          <td>{{i.name}}</td>
+          <td><button class="btn btn-danger" (click)="deleteSound(i.key,i.name)"> <span class="glyphicon glyphicon-trash"></span> Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</section>

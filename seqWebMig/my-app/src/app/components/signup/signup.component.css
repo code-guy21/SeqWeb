@@ -1,0 +1,22 @@
+.jumbotron-black {
+    max-width: 500px;
+    margin: auto;
+    padding: 2em;
+    background: #2d2d2d;
+    color: white;
+}
+
+.form-group{
+    margin: 1em ;    
+}
+.form{
+    margin: 1em 0;    
+}
+
+.form-buttons{
+    margin-left: 4em ;  
+}
+.form-buttons button{
+
+    margin-bottom: 1em ; 
+}

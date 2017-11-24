@@ -1,28 +1,29 @@
-
+<section class="jumbotron jumbotron-black">
+  <div class="form-group">  
+    <h2>Join now</h2>
+      
+    <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
+  
       <div class="form-group">
-        <a routerLink="/login" id="goback">Go back</a>
-      
-        <h2>Join now</h2>
-          
-        <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
-      
-          <div class="form-group">
-            <label for="sound">Name:</label>
-            <input type="text" placeholder="Name" (ngModel)="name" name="name" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label for="sound">Email:</label>
-            <input type="text" placeholder="Email address.." (ngModel)="email" name="email" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label for="sound">Password:</label>
-            <input type="password" placeholder="Password" (ngModel)="password" name="password" class="form-control" required>
-          </div>
-          <div class="form-group">
-            <label for="sound">Username:</label>
-            <input type="text" placeholder="Username.." (ngModel)="uname" name="uname" class="form-control" required>
-          </div>
-
-          <button type="submit" [disabled]="!formData.valid" class="btn btn-primary">Create my account</button>
-        </form>
+        <label for="sound">Name:</label>
+        <input type="text" placeholder="Name" (ngModel)="name" name="name" class="form-control" required>
       </div>
+      <div class="form-group">
+        <label for="sound">Email:</label>
+        <input type="text" placeholder="Email address.." (ngModel)="email" name="email" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="sound">Password:</label>
+        <input type="password" placeholder="Password" (ngModel)="password" name="password" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="sound">Username:</label>
+        <input type="text" placeholder="Username.." (ngModel)="uname" name="uname" class="form-control" required>
+      </div>
+      <div class="form-buttons">
+        <button type="submit" [disabled]="!formData.valid" class="btn btn-danger">Create My Account</button>
+        <button id="goback" routerLink="/login" class="btn btn-danger">Login to Account</button>
+      </div>
+    </form>
+  </div>
+</section>
