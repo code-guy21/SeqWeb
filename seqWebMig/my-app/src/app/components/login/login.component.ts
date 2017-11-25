@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     this.auth.auth.onAuthStateChanged(function(user) {
       
       if (user) {
-        route.navigate(['/']);
+        route.navigate(['/sound']);
       } else {
         route.navigate(['/login']);
       }
