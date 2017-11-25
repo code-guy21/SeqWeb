@@ -35,6 +35,7 @@ export class UploadFileService {
         this.saveFileData(fileUpload)
       }
     );
+
   }
  
   private saveFileData(fileUpload: FileUpload) {
