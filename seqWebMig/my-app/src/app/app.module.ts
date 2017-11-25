@@ -20,6 +20,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { SignupComponent } from './components/signup/signup.component';
 import {UploadFileService} from '../app/components/upload-file.service';
 import { FormsModule }   from '@angular/forms';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const appRoutes: Routes = [
   {path:'', component:HomeComponent},
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
   {path:'sound', component:SoundsComponent},
   {path:'login', component:LoginComponent},
   {path:'test', component:TestComponent},
-  {path:'signup', component:SignupComponent}
+  {path:'signup', component:SignupComponent},
+  {path:'settings', component:SettingsComponent}
 ];
 
 
@@ -40,7 +42,8 @@ const appRoutes: Routes = [
     TestComponent,
     LoginComponent,
     NavbarComponent,
-    SignupComponent
+    SignupComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

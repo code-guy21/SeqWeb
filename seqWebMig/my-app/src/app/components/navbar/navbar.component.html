@@ -12,6 +12,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul *ngIf="authService.user | async" class="nav navbar-nav">
         <li><a routerLink="/sound">Sounds</a></li>
+        <li><a routerLink="/settings">Settings</a></li>
       </ul>
       <ul  class="nav navbar-nav navbar-right">
         <li *ngIf="!(authService.user | async)"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

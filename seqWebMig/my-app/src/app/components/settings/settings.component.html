@@ -1,0 +1,49 @@
+<div class = "Subhead">
+  <h3 class = "Subhead-heading">Send password reset email</h3>
+</div>
+<form>
+  <dl>
+    <dt>
+     <label>Email</label>
+    </dt>
+    <dd>
+      <input class="form-control form-control" id="old" name="oldpass" required="required" type="email" #email1>
+    </dd>
+  </dl>
+    <p>
+      <button class="btn mr-2" type="submit" (click)="changepass(email1.value)">Send</button>
+    </p>
+</form>
+<div class="Subhead Subhead--spacious">
+  <h3 class="Subhead-heading">Change username</h3>
+</div>
+<form>
+  <dl class="form-group">
+    <dt>
+      <label>New username</label>
+    </dt>
+    <dd>
+      <input class="form-control short" required="required" type="text" #username>
+    </dd>
+  </dl>
+  <p>
+      <button type="submit" class="btn" (click)="changeuser(username.value)">Submit</button>
+  </p>
+</form>
+<div class="Subhead Subhead--spacious">
+    <h3 class="Subhead-heading">Change email</h3>
+  </div>
+  <form>
+    <dl class="form-group">
+      <dt>
+        <label>New email</label>
+      </dt>
+      <dd>
+        <input class="form-control short" required="required" type="email" #email>
+      </dd>
+    </dl>
+    <p>
+        <button type="submit" class="btn" (click)="changeemail(email.value)">Submit</button>
+    </p>
+  </form>
+
