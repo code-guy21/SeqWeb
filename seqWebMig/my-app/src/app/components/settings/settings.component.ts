@@ -12,7 +12,7 @@ import {AngularFireDatabase} from 'angularfire2/database';
 export class SettingsComponent implements OnInit {
   
   private userID = firebase.auth().currentUser.uid;
-  private user = firebase.auth().currentUser
+  user = firebase.auth().currentUser
   router: Router;
 
   constructor(public af: AngularFireAuth,public route: Router,private db: AngularFireDatabase) { 
@@ -36,6 +36,7 @@ export class SettingsComponent implements OnInit {
   changeemail(email){
     console.log(email)
     this.user.updateEmail(email);
+    //this.db.object(`users/${this.userID}/email`).set(email)
   }
 
   ngOnInit() {
