@@ -12,9 +12,10 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul *ngIf="authService.user | async" class="nav navbar-nav">
         <li><a routerLink="/sound">Sounds</a></li>
-        <li><a routerLink="/settings">{{this.currentUser}}</a>
+        <li><a routerLink="/settings">Settings</a>
       </ul>
       <ul  class="nav navbar-nav navbar-right">
+          <li *ngIf="(authService.user | async)"><a><span></span> {{this.currentUser}}</a></li>
         <li *ngIf="!(authService.user | async)"><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <li *ngIf="authService.user | async"><a (click)="logout()" *ngIf="authService.user | async" href="/login"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>

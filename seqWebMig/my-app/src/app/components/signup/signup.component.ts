@@ -29,6 +29,7 @@ export class SignupComponent implements OnInit {
     this.userUpload.email = formData.value.email;
     this.userUpload.name = formData.value.name;
     this.userUpload.username = formData.value.uname;
+    this.userUpload.phoneNumber = formData.value.phone;
 
     this.af.auth.createUserWithEmailAndPassword(formData.value.email, formData.value.password)
       .then(success => {
@@ -52,6 +53,7 @@ export class SignupComponent implements OnInit {
     this.userUpload.email = "email"
     this.userUpload.name = "name"
     this.userUpload.username = "username"
+    this.userUpload.phoneNumber = "phone"
   }
 
 }
