@@ -36,7 +36,7 @@ export class SettingsComponent implements OnInit {
   changeemail(email){
     console.log(email)
     this.user.updateEmail(email);
-    //this.db.object(`users/${this.userID}/email`).set(email)
+    this.db.object(`users/${this.userID}/email`).set(email)
   }
 
   ngOnInit() {

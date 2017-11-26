@@ -16,6 +16,7 @@ export class SignupComponent implements OnInit {
   database: AngularFireDatabase;
   userUpload : UserUpload;
   private userID;
+  photourl: string;
 
   constructor(public route: Router,public af: AngularFireAuth,public db: AngularFireDatabase) {
     this.router = route;
@@ -42,6 +43,9 @@ export class SignupComponent implements OnInit {
   uploadUser(userinfo){
     this.userID = firebase.auth().currentUser.uid;
     this.db.list(`users/`).set(this.userID,userinfo)
+    this.photourl = firebase.auth().currentUser.photoURL
+    firebase.auth().currentUser.updateProfile({displayName: this.userUpload.username, photoURL: this.photourl})
+    this.af.auth.signOut();
   }
 
   ngOnInit() {

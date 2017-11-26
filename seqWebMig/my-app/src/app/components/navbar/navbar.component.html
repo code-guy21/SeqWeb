@@ -7,15 +7,15 @@
         <span class="icon-bar"></span>                        
       </button>
       
-      <img src="../../../assets/img/logo.png" alt="Seq-Web" style="width:50px; margin: auto; padding: 5px"><a class="navbar-brand pull-right" href="/">Seq-Web </a>
+      <img src="../../../assets/img/logo.png" alt="Seq-Web" style="width:50px; margin: auto; padding: 5px"><a class="navbar-brand pull-right" routerLink="/">Seq-Web </a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul *ngIf="authService.user | async" class="nav navbar-nav">
         <li><a routerLink="/sound">Sounds</a></li>
-        <!--<li><a routerLink="/settings">Settings</a></li>-->
+        <li><a routerLink="/settings">{{this.currentUser}}</a>
       </ul>
       <ul  class="nav navbar-nav navbar-right">
-        <li *ngIf="!(authService.user | async)"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li *ngIf="!(authService.user | async)"><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <li *ngIf="authService.user | async"><a (click)="logout()" *ngIf="authService.user | async" href="/login"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
       </ul>
     </div>
